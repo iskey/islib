@@ -1,0 +1,38 @@
+#Makefile
+CC=gcc
+AR?=
+
+CFLAGS=
+ifeq (${DEBUG},TRUE)
+	CFLAGS+=-g
+else
+	CFLAGS+=
+endif
+
+SRCS=$(wildcard *.c)
+OBJS=$(patsubst %.c,%.o,${SRCS})
+
+all: libs bins
+
+libs: $(LIBS)
+
+bins: $(BINS)
+
+$(LIBS):$(OBJS)
+	@echo  ====== \"$(notdir $@)\" begin =========
+	@echo LIBS=${LIBS}
+	@$(AR) r $@　$^
+	@echo  ====== \"$(notdir $@)\" finished ========
+$(BINS):$(OBJS)
+	@echo  ====== \"$(notdir $@)\" begin =========
+	$(CC) -o $@　$(CFLAGS) $(LDFLAGS) $^
+	@echo  ====== \"$(notdir $@)\" finished ========
+
+%.o:%.c
+	$(CC) $(CFLGAS) -c $< -o $@
+
+echo_vars:
+	@echo LIBS=${LIBS}
+	@echo SRCS=${SRCS}
+	@echo OBJS=${OBJS}
+	@echo EXES=${EXES}
