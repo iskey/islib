@@ -1,6 +1,6 @@
 #Makefile
 CC=gcc
-AR?=
+AR=ar
 
 CFLAGS=
 ifeq (${DEBUG},TRUE)
@@ -21,11 +21,12 @@ bins: $(BINS)
 $(LIBS):$(OBJS)
 	@echo  ====== \"$(notdir $@)\" begin =========
 	@echo LIBS=${LIBS}
-	@$(AR) r $@　$^
+	$(AR) $(ARFLAGS) $@ $^
 	@echo  ====== \"$(notdir $@)\" finished ========
+
 $(BINS):$(OBJS)
 	@echo  ====== \"$(notdir $@)\" begin =========
-	$(CC) -o $@　$(CFLAGS) $(LDFLAGS) $^
+	#$(CC) -o $@　$(CFLAGS) $(LDFLAGS) $^
 	@echo  ====== \"$(notdir $@)\" finished ========
 
 %.o:%.c

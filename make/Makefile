@@ -11,9 +11,11 @@ export BIN_PATH=${BUILD_PATH}/bins
 
 all: libs bins
 
-libs:
+dirs:
 	@mkdir -p ${LIB_PATH}
 	@mkdir -p ${BIN_PATH}
+
+libs: dirs
 	@echo "----"
 	@for subdir in ${SRC_SUB_FULL_PATH}; \
 	do\
@@ -21,9 +23,7 @@ libs:
 		make -C $${subdir} libs;\
 	done
 
-bins:
-	@mkdir -p ${LIB_PATH}
-	@mkdir -p ${BIN_PATH}
+bins: dirs
 	@echo "----"
 	@for subdir in ${SRC_SUB_FULL_PATH}; \
 	do\
@@ -35,7 +35,7 @@ echo_vars:
 	@echo SRC_PATH=${SRC_PATH}
 	@echo SRC_SUB_PATH=${SRC_SUB_PATH}
 
-${SRC_SUB_PATH}:
+${SRC_SUB_PATH}: dirs
 	@echo  ++++++++++ \"$@\" begin +++++++++++
 	@make -C  ${SRC_PATH}/$@
 	@echo  ++++++++++ \"$@\" finished +++++++++++
