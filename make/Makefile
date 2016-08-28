@@ -31,6 +31,14 @@ bins: dirs
 		make -C $${subdir} bins;\
 	done
 
+clean:
+	@rm -fvr ${BUILD_PATH}
+	@for subdir in ${SRC_SUB_FULL_PATH}; \
+	do\
+		#echo $${subdir}\
+		make -C $${subdir} clean;\
+	done
+
 echo_vars:
 	@echo SRC_PATH=${SRC_PATH}
 	@echo SRC_SUB_PATH=${SRC_SUB_PATH}
