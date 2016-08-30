@@ -23,7 +23,7 @@ int main()
 {
 	Stack stack;
 	void *data;
-	
+
 	stack_init(&stack, NULL);
 
 	stack_push(&stack, "hello world.");
@@ -33,9 +33,9 @@ int main()
     int i;
     for(i=0; i<stack_size(&stack); i++){
 		stack_pop(&stack, &data);
-		printf("stack frame %d is [%s]\n", i, data);
+		printf("stack frame %d is [%s]\n", i, (char*)data);
     }
     stack_pop(&stack, &data);
-    printf("stack frame %d is [%s]\n", i, data);
+    printf("stack frame %d is [%s]\n", i, (char*)data);
 }
 #endif

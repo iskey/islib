@@ -16,7 +16,6 @@ dirs:
 	@mkdir -p ${BIN_PATH}
 
 libs: dirs
-	@echo "----"
 	@for subdir in ${SRC_SUB_FULL_PATH}; \
 	do\
 		#echo $${subdir}\
@@ -24,7 +23,6 @@ libs: dirs
 	done
 
 bins: dirs
-	@echo "----"
 	@for subdir in ${SRC_SUB_FULL_PATH}; \
 	do\
 		#echo $${subdir}\

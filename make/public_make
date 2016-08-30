@@ -28,15 +28,14 @@ libs: $(LIBS)
 bins: $(BINS)
 
 $(LIBS):$(OBJS)
-	@echo  ====== \"$(notdir $@)\" begin =========
-	@echo LIBS=${LIBS}
+	@echo  ====== \"$(notdir $@)\" begin
 	@$(AR) $(ARFLAGS) $@ $^
-	@echo  ====== \"$(notdir $@)\" finished ========
+	@echo  ====== \"$(notdir $@)\" finished
 
 $(BINS):$(OBJS)
-	@echo  ====== \"$(notdir $@)\" begin =========
+	@echo  ====== \"$(notdir $@)\" begin
 	@$(CC)  -o  $@   $^  $(LDFLAGS)
-	@echo  ====== \"$(notdir $@)\" finished ========
+	@echo  ====== \"$(notdir $@)\" finished
 
 %.o:%.c
 	@$(CC) $(CFLAGS) -c $< -o $@
