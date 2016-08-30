@@ -23,6 +23,8 @@ int main()
 {
 	Stack stack;
 	void *data;
+	
+	stack_init(&stack, NULL);
 
 	stack_push(&stack, "hello world.");
 	stack_push(&stack, "hello xiaoxie.");
