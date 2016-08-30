@@ -2,7 +2,7 @@
 
 #TODO: fix LIB/EXE name to the current director name.
 LIBS=
-BINS=${BIN_PATH}/simclist_ex
+BINS=
 
 CFLAGS=-I../simclist/
 LDFLAGS+=-lsimclist
