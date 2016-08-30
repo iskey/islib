@@ -111,7 +111,7 @@ void ele_free(void *data)
 {
 	free(data);
 }
-
+#if 0
 int main()
 {
 	List list;
@@ -132,4 +132,4 @@ int main()
 	return 0;
 }
 
-
+#endif
