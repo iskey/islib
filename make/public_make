@@ -15,6 +15,12 @@ OBJS=$(strip $(patsubst %.c,%.o,${SRCS}))
 
 LDFLAGS+=-L$(LIB_PATH)
 
+ifeq (${LIBS}, TRUE)
+	LIBS=${LIB_PATH}/lib$(shell pwd | sed 's/.*\///g' ).a
+else
+	BINS=${BIN_PATH}/$(shell pwd | sed 's/.*\///g')
+endif
+
 all: libs bins
 
 libs: $(LIBS)
