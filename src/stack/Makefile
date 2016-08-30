@@ -1,8 +1,8 @@
 #Makefile
 
 #TODO: fix LIB/EXE name to the current director name.
-LIBS=${LIB_PATH}/libstack.a
-BINS=${BIN_PATH}/test_stack
+LIBS=
+BINS=
 
 CFLAGS=-I../list/
 LDFLAGS+=-llist
