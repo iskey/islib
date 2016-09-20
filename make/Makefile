@@ -10,12 +10,14 @@ export OBJ_PATH=${BUILD_PATH}/objs
 export LIB_PATH=${BUILD_PATH}/libs
 export BIN_PATH=${BUILD_PATH}/bins
 
-$(warning "================================")
-$(warning Possible targets : ${SRC_SUB_PATH})
-$(warning "================================")
-
 all: libs bins
 
+help:
+	@echo "================================"
+	@echo Possible targets : 
+	@echo "  "${SRC_SUB_PATH}
+	@echo "================================"
+	
 dirs:
 	@mkdir -p ${LIB_PATH}
 	@mkdir -p ${BIN_PATH}
