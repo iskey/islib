@@ -1,3 +1,5 @@
+all: libs bins
+
 bins:
 	@for subdir in $(shell ls -d */); \
 		do\

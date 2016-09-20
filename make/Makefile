@@ -2,12 +2,17 @@
 
 export PRJ_PATH=$(shell readlink -f ..)
 export SRC_PATH=${PRJ_PATH}/src
-export SRC_SUB_PATH=$(shell ls ${SRC_PATH})
+#export SRC_SUB_PATH=$(shell ls ${SRC_PATH})
+export SRC_SUB_PATH=$(shell cd ${SRC_PATH}; find -maxdepth 2 -type d | awk -F "/" '{print $$2"/"$$3}')
 export SRC_SUB_FULL_PATH=$(addprefix ${SRC_PATH}/, ${SRC_SUB_PATH})
 export BUILD_PATH=${PRJ_PATH}/build
 export OBJ_PATH=${BUILD_PATH}/objs
 export LIB_PATH=${BUILD_PATH}/libs
 export BIN_PATH=${BUILD_PATH}/bins
+
+$(warning "================================")
+$(warning Possible targets : ${SRC_SUB_PATH})
+$(warning "================================")
 
 all: libs bins
 
