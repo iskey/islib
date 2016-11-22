@@ -9,11 +9,12 @@ int lengthOfLongestSubstring(char *str)
     int ans = 0;
     //The left position of the illegal string
     int left = 0;
+    int i = 0;
+    int len = strlen(str);
     int last[255];
     memset(last, -1, sizeof(last));
 
-    int i = 0;
-    for(i = 0; i < strlen(str); i++){
+    for(i = 0; i < len; i++){
         if(last[str[i]] >= left) left = last[str[i]] + 1;
         last[str[i]] = i;
         ans = max(ans, i - left + 1);
@@ -31,11 +32,12 @@ char *longestSubstring(char *str)
     //The max left
     int max_left = 0;
     int max_right = 0;
+    int i = 0;
+    int len = strlen(str);
     int last[255];
     memset(last, -1, sizeof(last));
 
-    int i = 0;
-    for(i = 0; i < strlen(str); i++){
+    for(i = 0; i < len; i++){
         if(last[str[i]] >= left) left = last[str[i]] + 1;
         last[str[i]] = i;
         if((i - left + 1) > ans){
