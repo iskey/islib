@@ -15,17 +15,26 @@ OBJS=$(strip $(patsubst %.c,%.o,${SRCS}))
 
 LDFLAGS+=-L$(LIB_PATH)
 
-ifeq (${LIBS}, TRUE)
+ifeq (${DYLIBS}, TRUE)
+	DYLIBS=${LIB_PATH}/lib$(shell pwd | sed 's/.*\///g' ).so
+else ifeq (${LIBS}, TRUE)
 	LIBS=${LIB_PATH}/lib$(shell pwd | sed 's/.*\///g' ).a
 else
 	BINS=${BIN_PATH}/$(shell pwd | sed 's/.*\///g')
 endif
 
-all: libs bins
+all: dylibs libs bins
+
+dylibs: $(DYLIBS)
 
 libs: $(LIBS)
 
 bins: $(BINS)
+
+$(DYLIBS):$(OBJS)
+	@echo  ====== \"$(notdir $@)\" begin
+	@$(CC) $(CFLAGS) -shared -o $@ $^
+	@echo  ====== \"$(notdir $@)\" finished
 
 $(LIBS):$(OBJS)
 	@echo  ====== \"$(notdir $@)\" begin

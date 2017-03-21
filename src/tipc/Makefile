@@ -1,5 +1,10 @@
-all: libs bins
+all: dylibs libs bins
 
+dylibs:
+	@for subdir in $(shell ls -d */); \
+		do\
+			make -C $$subdir dylibs;\
+		done
 bins:
 	@for subdir in $(shell ls -d */); \
 		do\

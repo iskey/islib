@@ -5,6 +5,7 @@ dylibs:
 		do\
 			make -C $$subdir dylibs;\
 		done
+
 bins:
 	@for subdir in $(shell ls -d */); \
 		do\
