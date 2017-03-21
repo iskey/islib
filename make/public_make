@@ -52,8 +52,10 @@ $(BINS):$(OBJS)
 clean:
 	@rm -fvr *.o
 	@rm -fvr *.a
+	@rm -fvr *.so
 
 echo_vars:
+	@echo DYLIBS=${DYLIBS}
 	@echo LIBS=${LIBS}
 	@echo SRCS=${SRCS}
 	@echo OBJS=${OBJS}

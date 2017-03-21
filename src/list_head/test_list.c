@@ -35,7 +35,7 @@ int main(void)
 	{
 		struct student *tmp_student;
 		tmp_student = list_entry(pos,struct student,list);
-		printf("PhyAddress:0x%08x <0>student %d name: %s\n",(unsigned int)tmp_student, tmp_student->num,tmp_student->name);
+		printf("PhyAddress:0x%08x <0>student %d name: %s\n",(unsigned int)tmp_student, tmp_student->num, tmp_student->name);
 	}
 
 	/* 实验：将for换成list_for_each来遍历删除结点，观察要发生的现象，并考虑解决办法 */

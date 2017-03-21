@@ -4,7 +4,7 @@
 LIBS=
 BINS=
 
-CFLAGS+=--static
+CFLAGS+=--static -Wno-format-extra-args  -w
 LDFLAGS+=-lpthread
 
 include ${PRJ_PATH}/make/public_make
