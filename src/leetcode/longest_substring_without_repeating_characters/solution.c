@@ -1,5 +1,6 @@
 #include "string.h"
 #include "stdlib.h"
+#include "stdio.h"
 
 #define max(a, b) (((a)> (b))? (a): (b))
 
