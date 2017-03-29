@@ -10,7 +10,7 @@ else
 	CFLAGS+=
 endif
 
-SRCS=$(strip $(wildcard *.c))
+SRCS=$(strip $(wildcard *.c) $(wildcard *.cpp) $(wildcard *.cc))
 OBJS=$(strip $(patsubst %.c,%.o,${SRCS}))
 
 LDFLAGS+=-L$(LIB_PATH)
